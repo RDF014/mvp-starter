@@ -18,27 +18,38 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  SimplyTrivia
+
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  This is for everyone who like trivia or just wants to make a simple social gathering an extra element of fun.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  The website will show the user different trivia questions one-by-one that will range in varying difficulty and a wide variety of catagories. All questions are user-created and there have been more than 2000+ verified questions, so it will be rare that you will receieve the same question twice. With this app, you can give any social gathering that you attend or host that extra "fun" factor and turn a simple hang-out or party into a fun or competitive trivia day. 
+
 
 ## Problem ##
   > Describe the problem your product solves.
+  Being at any type of social event and the overall vibe has become dull. 
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  This site is able to simply solve this problem by providing a no frills trivia app. It is as simple as pressing start and a stream of fun trivia questions starts to come through. 
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "Our product provides an easy way of turning any boring event into an amazing event"
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  It's as easy as pressing start and answering questions
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "This app helped give my party that extra 'omph' to make it the best night my friends ever had" 
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  They should go straight to the site and starting having fun :D
