@@ -17,9 +17,9 @@ class App extends React.Component {
     console.log('LOLOL')
     $.ajax({
       url: 'http://localhost:3000/items', 
-      type: 'GET',
+      type: 'POST',
       success: (data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({
           items: data
         })

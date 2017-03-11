@@ -20,9 +20,8 @@ var questionSchema = mongoose.Schema({
   type: String
 });
 
-var Question = mongoose.model('Question ', questionSchema);
 
-var selectAll = function(callback) {
+questionSchema.method.selectAll = function(callback) {
   Question.find({}, function(err, items) {
     if(err) {
       callback(err, null);
@@ -32,4 +31,6 @@ var selectAll = function(callback) {
   });
 };
 
-module.exports.selectAll = selectAll;
+var Question = mongoose.model('Question ', questionSchema);
+
+module.exports = Question;
