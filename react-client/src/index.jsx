@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
+import Data from './Data/data.js';
+import User from './components/User.jsx';
+import Parameters from './components/Parameters.jsx';
+import Trivia from './components/Trivia.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,11 +13,8 @@ class App extends React.Component {
       items: []
     }
   }
-
-
-
   componentDidMount() {
-    console.log('LOLOL')
+    console.log(Data) 
     $.ajax({
       url: '/Users', 
       type: 'POST',
@@ -24,7 +24,7 @@ class App extends React.Component {
         highScore: 9000
       },
       success: (data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({
           items: data
         })
@@ -37,8 +37,10 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
+      <h1>Simply Trivia</h1>
+      <User />
+      <Parameters data={Data}/>
+      <Trivia items={this.state.items}/>
     </div>)
   }
 }
