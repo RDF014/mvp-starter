@@ -11,10 +11,15 @@ class App extends React.Component {
     }
   }
 
+
+
   componentDidMount() {
+    console.log('LOLOL')
     $.ajax({
-      url: '/items', 
+      url: 'http://localhost:3000/items', 
+      type: 'GET',
       success: (data) => {
+        console.log(data);
         this.setState({
           items: data
         })

@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/questions');
 
 var db = mongoose.connection;
 
@@ -11,15 +11,19 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+var questionSchema = mongoose.Schema({
+  catagory: String,
+  correct_answer: String,
+  difficulty: String,
+  incorrect_answers: Array,
+  question: String,
+  type: String
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Question = mongoose.model('Question ', questionSchema);
 
 var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+  Question.find({}, function(err, items) {
     if(err) {
       callback(err, null);
     } else {
