@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/questions');
+mongoose.connect('mongodb://localhost/users');
 
 var db = mongoose.connection;
 
@@ -11,18 +11,14 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var questionSchema = mongoose.Schema({
-  catagory: String,
-  correct_answer: String,
-  difficulty: String,
-  incorrect_answers: Array,
-  question: String,
-  type: String
+var usersSchema = mongoose.Schema({
+  user: String,
+  HighScore: Number
 });
 
 
-questionSchema.method.selectAll = function(callback) {
-  Question.find({}, function(err, items) {
+usersSchema.method.selectAll = function(callback) {
+  Users.find({}, function(err, items) {
     if(err) {
       callback(err, null);
     } else {
@@ -31,6 +27,6 @@ questionSchema.method.selectAll = function(callback) {
   });
 };
 
-var Question = mongoose.model('Question ', questionSchema);
+var Users = mongoose.model('Users', usersSchema);
 
-module.exports = Question;
+module.exports = Users;
