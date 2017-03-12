@@ -11,27 +11,33 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.post('/Users', function(req, res) {
-	var data = req.body;
-	console.log('POST DATA', data);
-	// console.log(typeof JSON.parse(req.body.users));
-	var newUsers = new Users({
-		user: req.body.user,
-		HighScore: req.body.highScore || 0
-	});
-	newUsers.save((err, newUsers) => {
-		if(err) {
-			console.log(err);
-		} else {
-			Users.find({user: req.body.user}, (err, items) => {
-				if(err) {
-					console.log(err);
-				} else {
-					console.log(items);
-				}
-			});
-			res.status(201).send(newUsers);
-		}
-	})
+	Users.find({user: req.body.user}, (err, items) => {
+    if(err){console.log(err)}
+
+    if(items.length) { // user does exist
+      console.log(items);
+      res.status(201).send(items[0]);
+    } else {
+      var newUsers = new Users({
+       user: req.body.user,
+       HighScore: req.body.highScore || 0
+      });
+      newUsers.save((err, newUsers) => {
+       if(err) {
+         console.log(err);
+       } else {
+         Users.find({user: req.body.user}, (err, items) => {
+           if(err) {
+             console.log(err);
+           } else {
+             console.log(items);
+           }
+         });
+         res.status(201).send(newUsers);
+       }
+      })
+    }
+  })
 })
 
 

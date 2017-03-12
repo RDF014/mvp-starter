@@ -13,7 +13,9 @@ class App extends React.Component {
     this.state = { 
       questions: [],
       answerArr: null,
-      showAnswer: false
+      showAnswer: false,
+      user: null,
+      highScore: null
     }
     this.getApiUrl = this.getApiUrl.bind(this);
     this.clickAnswer = this.clickAnswer.bind(this);
@@ -112,9 +114,10 @@ class App extends React.Component {
       data: {user: name},
       success: (data) => {
         console.log(data);
-        // this.setState({
-        //   items: data
-        // })
+        this.setState({
+          user: data.user,
+          highScore: data.HighScore
+        })
       },
       error: (err) => {
         console.log('err', err);
@@ -130,7 +133,9 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>Simply Trivia</h1>
-      <User onClick={this.userButton}/>
+      <User onClick={this.userButton}
+            userName={this.state.user}
+            highScore={this.state.highScore}/>
       <Parameters data={Data} onClick={this.getApiUrl}/>
       {this.state.questions.length ? 
         <Trivia first={this.state.questions[0]} 
