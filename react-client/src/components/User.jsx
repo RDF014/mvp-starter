@@ -7,7 +7,7 @@ const User = (props) => (
       type="text"
       // onChange={(e) => props.videoSearch(e.target.value)} 
     />
-    <button className="btn hidden-sm-down">
+    <button>
       Enter User
     </button>
   </div>

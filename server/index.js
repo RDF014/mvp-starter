@@ -11,8 +11,8 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.urlencoded());
 
 
-app.post('/items', function(req, res) {
-  request('https://opentdb.com/api.php?amount=10', (err, response, body) => {
+app.get('/items', function(req, res) {
+  request('https://opentdb.com/api.php?amount=10&category=any', (err, response, body) => {
   	if(err) {
   		console.log(err);
   	} else {
@@ -48,7 +48,7 @@ app.post('/Users', function(req, res) {
 })
 
 
-app.get('/items', function (req, res) { // GET request won't be don't a get request to the api.
+app.get('/users', function (req, res) { // GET request won't be don't a get request to the api.
   Users.selectAll(function(err, data) {
     if(err) {
       console.log(data)

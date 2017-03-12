@@ -9,13 +9,9 @@ const Data = {
     'Entertainment: Television',
     'Entertainment: Video Games',
     'Entertainment: Board Games',
-    'Entertainment: Comics',
-    'Entertainment: Japanese Anime &amp; Manga',
-    'Entertainment: Cartoon &amp; Animations',
+    'Science &amp; Nature',
     'Science: Computers',
     'Science: Mathematics',
-    'Science: Gadgets',
-    'Science &amp; Nature',
     'Mythology',
     'Sports',
     'Geography',
@@ -24,20 +20,24 @@ const Data = {
     'Art',
     'Celebrities',
     'Animals',
-    'Vehicles'
+    'Vehicles',
+    'Entertainment: Comics',
+    'Science: Gadgets',
+    'Entertainment: Japanese Anime &amp; Manga',
+    'Entertainment: Cartoon &amp; Animations'
   ],
 
   Difficulty: [
     'Any Difficulty',
-    'Easy',
-    'Medium',
-    'Hard'
+    'easy',
+    'medium',
+    'hard'
   ],
 
   Type: [
-    'Any Difficulty',
-    'Multiple Choice',
-    'True/False'
+    {text:'Any Type', value: 'any'},
+    {text:'Multiple Choice', value: 'multiple'},
+    {text:'True/False', value: 'boolean'}
   ]
 };
 
