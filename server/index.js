@@ -10,19 +10,6 @@ var app = express();
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.urlencoded());
 
-
-app.get('/items', function(req, res) {
-  request('https://opentdb.com/api.php?amount=10&category=any', (err, response, body) => {
-  	if(err) {
-  		console.log(err);
-  	} else {
-	  var data = JSON.parse(body);
-	  // console.log(data);
-	  res.status(201).send(data.results);
-  	}
-  })
-});
-
 app.post('/Users', function(req, res) {
 	// var data = JSON.parse(req.body);
 	// console.log(data)
