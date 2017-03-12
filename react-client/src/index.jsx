@@ -15,7 +15,8 @@ class App extends React.Component {
       answerArr: null,
       showAnswer: false,
       user: null,
-      highScore: null
+      highScore: null,
+      currentScore: 0
     }
     this.getApiUrl = this.getApiUrl.bind(this);
     this.clickAnswer = this.clickAnswer.bind(this);
@@ -79,7 +80,24 @@ class App extends React.Component {
     return item;
   }
 
+  checkAnswer() {
+    var current = this.state.questions[0];
+    var guess = $("input[type='radio']:checked").next('label').text();
+    if (guess !== current.correct_answer) {
+      console.log('WRONG');
+      return;
+    } else {
+      var score = this.state.currentScore;
+      if(current.difficulty === 'easy') {this.setState({currentScore: ++score})}
+      if(current.difficulty === 'medium') {this.setState({currentScore: score+=2})}
+      if(current.difficulty === 'hard') {this.setState({currentScore: score+=3})}
+    }
+    console.log(guess, this.state.currentScore);
+  }
+
   clickAnswer() {
+    // check answer here
+    this.checkAnswer();
     this.setState({
       showAnswer: true
     })
@@ -90,7 +108,8 @@ class App extends React.Component {
       this.setState({
         questions: [],
         answerArr: null,
-        showAnswer: false
+        showAnswer: false,
+        currentScore: 0
       })
     } else {
       var copy = this.state.questions.slice();
@@ -143,6 +162,7 @@ class App extends React.Component {
                 onClick={this.clickAnswer}
                 showAnswer={this.state.showAnswer}
                 nextQuestion={this.nextQuestion}
+                score={this.state.currentScore}
         />
       : <Init />}
     </div>)
