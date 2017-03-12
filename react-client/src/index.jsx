@@ -11,8 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      questions: [],
-      current: null
+      questions: []
     }
     this.getApiUrl = this.getApiUrl.bind(this);
   }
@@ -57,10 +56,18 @@ class App extends React.Component {
     if(query.type !== 'any'){
       url +=`&type=${query.type}`
     }
-    console.log(this)
     this.requestQuestions(url);
   }
 
+  randomAnswer(arr) {
+    var num = Math.random() * (arr.length-1)
+    var randomAnswer = arr[num]
+    console.log(randomAnswer);
+    if(arr.length > 1){
+      arr.splice(num);
+    }
+    return randomAnswer;
+  }
 
 
   componentDidMount() {
@@ -90,7 +97,7 @@ class App extends React.Component {
       <h1>Simply Trivia</h1>
       <User />
       <Parameters data={Data} onClick={this.getApiUrl}/>
-      {this.state.questions.length ? <Trivia items={this.state.items}/> : <Init />}
+      {this.state.questions.length ? <Trivia first={this.state.questions[0]} random={this.randomAnswer}/> : <Init />}
     </div>)
   }
 }
