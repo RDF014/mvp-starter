@@ -18,6 +18,7 @@ class App extends React.Component {
     this.getApiUrl = this.getApiUrl.bind(this);
     this.clickAnswer = this.clickAnswer.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
+    this.userButton = this.userButton.bind(this);
   }
   requestQuestions (url) {
     $.ajax({
@@ -102,35 +103,34 @@ class App extends React.Component {
     }
   }
 
-  userSelect
-
+  userButton() {
+    var name = $("input[name='user-name']").val();
+    $.ajax({
+      url: '/Users', 
+      type: 'POST',
+      dataType: 'json',
+      data: {user: name},
+      success: (data) => {
+        console.log(data);
+        // this.setState({
+        //   items: data
+        // })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+  }
 
   componentDidMount() {
-    // console.log(Data) 
-    // $.ajax({
-    //   url: '/items', 
-    //   type: 'POST',
-    //   dataType: 'json',
-    //   data: {
-    //     user: 'MEH',
-    //     highScore: 9000
-    //   },
-    //   success: (data) => {
-    //     console.log(data);
-    //     this.setState({
-    //       items: data
-    //     })
-    //   },
-    //   error: (err) => {
-    //     console.log('err', err);
-    //   }
-    // });
+    // // console.log(Data) 
+
   }
 
   render () {
     return (<div>
       <h1>Simply Trivia</h1>
-      <User />
+      <User onClick={this.userButton}/>
       <Parameters data={Data} onClick={this.getApiUrl}/>
       {this.state.questions.length ? 
         <Trivia first={this.state.questions[0]} 

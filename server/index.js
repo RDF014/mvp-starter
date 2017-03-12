@@ -8,21 +8,21 @@ var Users = require('../database-mongo/index.js');
 var app = express();
 
 app.use(express.static(__dirname + '/../react-client/dist'));
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.post('/Users', function(req, res) {
-	// var data = JSON.parse(req.body);
-	// console.log(data)
+	var data = req.body;
+	console.log('POST DATA', data);
 	// console.log(typeof JSON.parse(req.body.users));
 	var newUsers = new Users({
 		user: req.body.user,
-		HighScore: JSON.parse(req.body.highScore)
+		HighScore: req.body.highScore || 0
 	});
 	newUsers.save((err, newUsers) => {
 		if(err) {
 			console.log(err);
 		} else {
-			Users.find({}, (err, items) => {
+			Users.find({user: req.body.user}, (err, items) => {
 				if(err) {
 					console.log(err);
 				} else {
