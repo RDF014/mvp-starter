@@ -23,16 +23,15 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-  This is for everyone who like trivia or just wants to make a simple social gathering an extra element of fun.
+  This is for that person who wants to see how much random knowledge they know.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-  The website will show the user different trivia questions one-by-one that will range in varying difficulty and a wide variety of catagories. All questions are user-created and there have been more than 2000+ verified questions, so it will be rare that you will receieve the same question twice. With this app, you can give any social gathering that you attend or host that extra "fun" factor and turn a simple hang-out or party into a fun or competitive trivia day. 
-
+  The website will show the user a variety of trivia questions that will range in varying difficulty and a wide variety of catagories. All questions are user-created and there have been more than 2000+ verified questions, so it will be rare that you will receieve the same question twice. With this app, you can give yourself that extra bit of entertainment on those long boring days.
 
 ## Problem ##
   > Describe the problem your product solves.
-  Being at any type of social event and the overall vibe has become dull. 
+  Going through the day and having nothing to do
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
@@ -40,7 +39,7 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
-  "Our product provides an easy way of turning any boring event into an amazing event"
+  "Our product provides an easy way of turning any boring day into a great day"
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
@@ -48,7 +47,7 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-  "This app helped give my party that extra 'omph' to make it the best night my friends ever had" 
+  "This app helped give my day that extra 'omph' to make it the best day I ever had" 
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
