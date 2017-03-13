@@ -11,9 +11,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
+      questionCount: 0,
       questions: [],
       answerArr: null,
       showAnswer: false,
+      showButton: true,
       user: null,
       highScore: null,
       currentScore: 0
@@ -51,6 +53,10 @@ class App extends React.Component {
       difficulty: difficulty,
       type: type
     }
+
+    this.setState({
+      questionCount: amount
+    })
     
     var url = `https://opentdb.com/api.php?amount=${query.amount}`
     
@@ -99,7 +105,8 @@ class App extends React.Component {
     // check answer here
     this.checkAnswer();
     this.setState({
-      showAnswer: true
+      showAnswer: true,
+      showButton: false
     })
   }
 
@@ -134,6 +141,7 @@ class App extends React.Component {
         questions: [],
         answerArr: null,
         showAnswer: false,
+        showButton: true,
         currentScore: 0
       })
     } else {
@@ -144,7 +152,8 @@ class App extends React.Component {
       this.setState({
         questions: copy,
         answerArr: newAns,
-        showAnswer: false
+        showAnswer: false,
+        showButton: true
       });
     }
   }
@@ -185,11 +194,15 @@ class App extends React.Component {
         <Trivia first={this.state.questions[0]} 
                 ansArr={this.state.answerArr}
                 onClick={this.clickAnswer}
+                showButton={this.state.showButton}
                 showAnswer={this.state.showAnswer}
                 nextQuestion={this.nextQuestion}
                 score={this.state.currentScore}
+                count={this.state.questionCount}
+                length={this.state.questions.length}
         />
-      : <Init />}
+      : 
+      <Init />}
     </div>)
   }
 }

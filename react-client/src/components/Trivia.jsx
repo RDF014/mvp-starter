@@ -9,9 +9,9 @@ import Results from './Results.jsx';
 
 const Trivia = (props) => (
   <div>
-    <Question question={props.first} score={props.score}/>
+    <Question question={props.first} score={props.score} count={props.count} length={props.length}/>
     <Answers answers={props.first} ansArr={props.ansArr}/>
-    <button onClick={props.onClick}>Show me the answer</button>
+    {props.showButton ? <button onClick={props.onClick}>Show me the answer</button> : <p></p>}
     {props.showAnswer ? <Results answer={props.first.correct_answer} nextQuestion={props.nextQuestion}/> : <p>Waiting...</p> }
   </div>
 )

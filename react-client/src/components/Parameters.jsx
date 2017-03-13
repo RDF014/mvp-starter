@@ -2,7 +2,7 @@ import React from 'react';
 
 const Parameters = (props) => (
   <div>
-    <h3>Trivia Parameters</h3>
+    <h4>Search Trivia</h4>
     <label for="amount">Number of Questions(from 1 - 50):</label>
     <input name="amount" type="number" min="1" max="50"/>
     <br/>
