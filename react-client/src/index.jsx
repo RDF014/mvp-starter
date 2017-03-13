@@ -164,7 +164,7 @@ class App extends React.Component {
     $.ajax({
       url: '/Users', 
       type: 'POST',
-      dataType: 'json',
+      // dataType: 'json',
       data: {user: name},
       success: (data) => {
         console.log(data);
