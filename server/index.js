@@ -41,16 +41,23 @@ app.post('/Users', function(req, res) {
 })
 
 
-app.get('/users', function (req, res) { // GET request won't be don't a get request to the api.
-  Users.selectAll(function(err, data) {
-    if(err) {
-      console.log(data)
-      res.sendStatus(500);
-    } else {
-      // console.log(data)
-      res.json(data);
-    }
-  });
+app.post('/Users/Score', function (req, res) {
+  console.log('1st', req.body); 
+  if(req.body.user !== '') {
+    Users.findOne({user: req.body.user}, function(err, data) {
+      if(err) {
+        console.log('err', data)
+        res.send(err);
+      } else {
+        console.log('2nd', data)
+        data.HighScore = req.body.highScore;
+        data.save();
+        res.send(data);
+      }
+    });
+    
+  }
+  // res.send('was sent back');
 });
 
 app.listen(3000, function() {

@@ -103,8 +103,33 @@ class App extends React.Component {
     })
   }
 
+  checkUpdateHighScore(){
+    console.log(this.state.currentScore, this.state.highScore);
+    if(this.state.currentScore > this.state.highScore){
+      console.log('is higher')
+      $.ajax({
+        url: '/Users/Score', 
+        type: 'POST',
+        data: {
+          user: this.state.user,
+          highScore: this.state.currentScore
+        },
+        success: (data) => {
+          console.log(data);
+          this.setState({
+            highScore: data.HighScore
+          })
+        },
+        error: (err) => {
+          console.log('err', err);
+        }
+      });
+    }
+  }
+
   nextQuestion() {
     if(this.state.questions.length === 1) {
+      this.checkUpdateHighScore();
       this.setState({
         questions: [],
         answerArr: null,
