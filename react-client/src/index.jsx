@@ -30,6 +30,7 @@ class App extends React.Component {
       url: url, 
       type: 'GET',
       success: (data) => {
+        console.log(data);
         this.setState({
           questions: data.results,
           answerArr: this.randomizeArray(data.results[0].correct_answer, data.results[0].incorrect_answers)
@@ -55,7 +56,7 @@ class App extends React.Component {
     }
 
     this.setState({
-      questionCount: amount
+      questionCount: query.amount
     })
     
     var url = `https://opentdb.com/api.php?amount=${query.amount}`
