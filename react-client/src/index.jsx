@@ -187,20 +187,26 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>Simply Trivia</h1>
-      <User onClick={this.userButton}
-            userName={this.state.user}
-            highScore={this.state.highScore}/>
-      <Parameters data={Data} onClick={this.getApiUrl}/>
+      <User 
+        onClick={this.userButton}
+        userName={this.state.user}
+        highScore={this.state.highScore}
+      />
+      <Parameters 
+        data={Data} 
+        onClick={this.getApiUrl}
+      />
       {this.state.questions.length ? 
-        <Trivia first={this.state.questions[0]} 
-                ansArr={this.state.answerArr}
-                onClick={this.clickAnswer}
-                showButton={this.state.showButton}
-                showAnswer={this.state.showAnswer}
-                nextQuestion={this.nextQuestion}
-                score={this.state.currentScore}
-                count={this.state.questionCount}
-                length={this.state.questions.length}
+        <Trivia 
+          first={this.state.questions[0]} 
+          ansArr={this.state.answerArr}
+          onClick={this.clickAnswer}
+          showButton={this.state.showButton}
+          showAnswer={this.state.showAnswer}
+          nextQuestion={this.nextQuestion}
+          score={this.state.currentScore}
+          count={this.state.questionCount}
+          length={this.state.questions.length}
         />
       : 
       <Init />}
