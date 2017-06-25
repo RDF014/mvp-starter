@@ -36,7 +36,7 @@
   "jest": {
     "testEnvironment": "jest-environment-node",
     "collectCoverageFrom": [
-      "*/server/**"
+      "**/*.{js,jsx}", "!**/*.config.js"
     ],
     "coverageThreshold": {
       "global": {
