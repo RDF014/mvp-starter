@@ -1,25 +1,24 @@
 import axios from 'axios';
-import startServer from '../server/index.js';
+// import startServer from '../server/index.js';
 
-const api = axios.create({baseURL: 'http://localhost:3000/Users'});
+const api = axios.create({baseURL: 'http://localhost:1337/'});
 
-let server;
+// let server;
 
-beforeAll( async () => {
-  server = await startServer();
-})
+// beforeAll( async () => {
+//   server = await startServer();
+// })
 
-afterAll(done => {
-  server.close(done)
-})
+// afterAll(done => {
+//   server.close(done)
+// })
 
 describe('practice MVP server test', () => {
 
   test('get user', async () => {
     const user = await api
-      .post('/', {user: 'Raffy'})
-      .then(res => res.data);
-    console.log(user);
+      .post('/Users', {user: 'Raffy'})
+      .then(res => res.data.user);
     expect(user).toEqual('Raffy');
   });
   

@@ -12,9 +12,11 @@ async function startServer() {
 
   app.use(express.static(__dirname + '/../react-client/dist'));
   app.use(bodyParser.urlencoded({extended: false}));
+  app.use(bodyParser.json({extended: true}));
 
 
-  router.post('/', (req, res) => {
+  router.post('/Users', (req, res) => {
+    console.log('users was called\n', req.body);
     Users.find({user: req.body.user}, (err, items) => {
       if (err) { console.log(err); }
 
@@ -37,6 +39,7 @@ async function startServer() {
                console.log(items);
              }
            });
+           console.log('here');
            res.status(201).send(newUsers);
          }
         })
@@ -64,10 +67,10 @@ async function startServer() {
     // res.send('was sent back');
   });
 
-  app.use('/Users', router);
+  app.use('/', router);
 
   return new Promise(resolve => {
-    const port = process.env.PORT || 3000;
+    const port = process.env.PORT || 1337;
     const server = app.listen(port, () => {
       console.log(`listening on port ${port}!`);
     });
